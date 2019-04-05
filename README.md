@@ -1,6 +1,6 @@
-# electron-vue
+# TaskPromoter
 
-> An electron-vue project
+> An electron-vue project 
 
 #### Build Setup
 
