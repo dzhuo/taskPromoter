@@ -62,8 +62,15 @@
 </style>
 <template style="height:100%">
     <div class="layout">
-        <Layout :style="{height:'100%'}" >
-            <Sider ref="side1" hide-trigger collapsible :collapsed-width="78" v-model="isCollapsed" :style="{borderRight: '2px #dcdee2 solid'}">
+        <Layout :style="{height:'100%'}">
+            <Sider
+                ref="side1"
+                hide-trigger
+                collapsible
+                :collapsed-width="78"
+                v-model="isCollapsed"
+                :style="{borderRight: '2px #dcdee2 solid'}"
+            >
                 <Menu theme="light" width="auto" :class="menuitemClasses">
                     <router-link to="/index">
                         <MenuItem name="index">
@@ -95,8 +102,8 @@
             <Layout :style="{ height: '100%'}">
                 <Header :style="{padding: 0}" class="layout-header-bar" style="z-index: 900;">
                     <Row type="flex" justify="end">
-                        <Col span="2" >
-                            <Icon 
+                        <Col span="2">
+                            <Icon
                                 @click.native="collapsedSider"
                                 :class="rotateIcon"
                                 :style="{margin: '0 20px'}"
@@ -106,14 +113,14 @@
                             <div class="menuLine"></div>
                         </Col>
                         <Col span="22">
-                            <Menu theme="light" width="auto" mode="horizontal"  >
+                            <Menu theme="light" width="auto" mode="horizontal">
                                 <router-link v-for="Item in menuList" :to="Item.route">
-                                  <Badge :count="Item.count"  :offset="[10, 10]">
-                                    <MenuItem :name="Item.name" >
-                                        <Icon :type="Item.iconType"/>
-                                        <span>{{ Item.content }}</span>
-                                    </MenuItem>
-                                  </Badge>
+                                    <Badge :count="Item.count" :offset="[10, 10]">
+                                        <MenuItem :name="Item.name">
+                                            <Icon :type="Item.iconType"/>
+                                            <span>{{ Item.content }}</span>
+                                        </MenuItem>
+                                    </Badge>
                                 </router-link>
                             </Menu>
                         </Col>
@@ -148,33 +155,13 @@ export default {
     data() {
         return {
             spinShow: false,
-            isCollapsed: false,
-            menuList: [
-                {
-                    count:"3",
-                    content: "进行中",
-                    name: "working",
-                    route: "/task/working",
-                    iconType: "ios-american-football-outline"
-                },
-                {
-                    count:"4",
-                    content: "待开始",
-                    name: "waiting",
-                    route: "/task/waiting",
-                    iconType: "md-aperture"
-                },
-                {
-                    count:"5",
-                    content: "已完成",
-                    name: "finish",
-                    route: "/task/finish",
-                    iconType: "md-list-box"
-                }
-            ]
+            isCollapsed: false
         };
     },
     computed: {
+        menuList() {
+            return this.$store.state.Menu.rightMenu;
+        },
         rotateIcon() {
             return ["menu-icon", this.isCollapsed ? "rotate-icon" : ""];
         },

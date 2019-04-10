@@ -1,7 +1,7 @@
 
 
 <template>
-    <div>     <router-view></router-view></div>
+    <div>finish</div>
 </template>
 <script>
 export default {

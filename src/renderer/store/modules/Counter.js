@@ -8,6 +8,7 @@ const mutations = {
   },
   INCREMENT_MAIN_COUNTER (state) {
     state.main++
+    console.log(state.main);
   }
 }
 
@@ -15,6 +16,7 @@ const actions = {
   someAsyncTask ({ commit }) {
     // do something async
     commit('INCREMENT_MAIN_COUNTER')
+   
   }
 }
 
