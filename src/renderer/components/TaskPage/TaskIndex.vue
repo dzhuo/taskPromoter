@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Button @click="handleStart">open tasks</Button>
         <router-view></router-view>
     </div>
 </template>
@@ -9,27 +8,20 @@ export default {
     data() {
         return {
             rightMenu: [
-                {
-                    count: 3,
-                    content: "进行中",
-                    name: "working",
-                    route: "/task/working",
+               {
+                    count: 0,
+                    content: "概况",
+                    name: "task-dashboard",
+                    route: "/task/dashboard",
                     iconType: "ios-american-football-outline"
                 },
                 {
-                    count: 2,
-                    content: "待开始",
-                    name: "waiting",
-                    route: "/task/waiting",
-                    iconType: "md-aperture"
+                    count: 3,
+                    content: "任务",
+                    name: "task-List",
+                    route: "/task/taskList",
+                    iconType: "ios-american-football-outline"
                 },
-                {
-                    count: 1,
-                    content: "已完成",
-                    name: "finish",
-                    route: "/task/finish",
-                    iconType: "md-list-box"
-                }
             ]
         };
     },
@@ -37,31 +29,7 @@ export default {
       this.$store.dispatch('setRightMenu', {rightMenu: this.rightMenu});
     },
     methods: {
-        handleStart() {
-            this.$store.dispatch('setRightMenu', {rightMenu: [
-                {
-                    count: 0,
-                    content: "进行中",
-                    name: "working",
-                    route: "/task/working",
-                    iconType: "ios-american-football-outline"
-                },
-                {
-                    count: 0,
-                    content: "待开始",
-                    name: "waiting",
-                    route: "/task/waiting",
-                    iconType: "md-aperture"
-                },
-                {
-                    count: 0,
-                    content: "已完成",
-                    name: "finish",
-                    route: "/task/finish",
-                    iconType: "md-list-box"
-                }
-            ]});
-        }
+      
     }
 };
 </script>

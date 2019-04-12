@@ -5,7 +5,6 @@ const state = {
 const mutations = {
     SET_RIGHT_MENU(state, rightMenu){
         state.rightMenu = rightMenu;
-         console.log(rightMenu);
     }
   }
   const actions = {
