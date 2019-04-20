@@ -18,11 +18,24 @@ export default {
     },
     methods: {
         showState() {
-            console.log(this.$store.state.Counter.main);
-            this.$Modal.info({
-                title: "test",
-                content: this.$store.state.Counter.main
+            var countSQL = "select * form GOODS"
+            this.$logger(countSQL);
+            this.$db.get(countSQL, (err, res) => {
+                if (err) {
+                this.$logger(err);
+                this.$Notice.error({
+                    title: '搜索失败',
+                    desc: err,
+                });
+                } else {
+                this.dataListTotalCount = res.totalCount;
+                }
             });
+            //console.log(this.$store.state.Counter.main);
+            // this.$Modal.info({
+            //     title: "test",
+            //     content: this.$store.state.Counter.main
+            // });
         },
         handleStart() {
             this.$store.dispatch("setRightMenu", {
