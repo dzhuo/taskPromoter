@@ -22,6 +22,13 @@ export default {
                     route: "/task/taskList",
                     iconType: "ios-american-football-outline"
                 },
+                {
+                    count: 3,
+                    content: "工程模块",
+                    name: "project-List",
+                    route: "/task/projectList",
+                    iconType: "ios-american-football-outline"
+                },
             ]
         };
     },

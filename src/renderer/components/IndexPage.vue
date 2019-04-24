@@ -18,17 +18,16 @@ export default {
     },
     methods: {
         showState() {
-            var countSQL = "select * form GOODS"
-            this.$logger(countSQL);
+            var countSQL = "SELECT count(*) as flag FROM sqlite_master WHERE type='table' AND name='TAKES1';"
+            console.log(this.$config);
+
             this.$db.get(countSQL, (err, res) => {
                 if (err) {
-                this.$logger(err);
-                this.$Notice.error({
-                    title: '搜索失败',
-                    desc: err,
-                });
+                    this.$Notice.error({
+                        title: '搜索失败',
+                        desc: err,
+                    });
                 } else {
-                this.dataListTotalCount = res.totalCount;
                 }
             });
             //console.log(this.$store.state.Counter.main);

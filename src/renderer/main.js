@@ -6,6 +6,7 @@ import router from './router'
 import store from './store'
 import db from './utils/db';
 import logger from './utils/logger';
+import config from './config';
 
 import iView from 'iview';
 // import 'iview/dist/styles/iview.css';
@@ -18,6 +19,7 @@ Vue.config.productionTip = false
 
 Vue.prototype.$db = db;
 Vue.prototype.$logger = logger;
+Vue.prototype.$config = config;
 
 router.beforeEach((to, from, next) => {
   iView.LoadingBar.start();
