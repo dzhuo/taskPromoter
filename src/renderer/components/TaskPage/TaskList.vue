@@ -148,8 +148,24 @@ export default {
         },
         showQueryBox() {
             this.queryByModule = true;
+        },
+        queryTaskList(){
+             var countSQL = "SELECT * FROM TAKES;"
+                this.$db.get(countSQL, (err, res) => {
+                if (err) {
+                    this.$Notice.error({
+                        title: '任务列表查询失败',
+                        desc: err,
+                    });
+                } else {
+                    debugger;
+                }
+            });
         }
-    }
+    },
+    created(){
+      this.queryTaskList();
+    },
 };
 </script>
 <style scope>

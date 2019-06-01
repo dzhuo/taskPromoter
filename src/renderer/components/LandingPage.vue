@@ -114,11 +114,11 @@
                         </Col>
                         <Col span="22">
                             <Menu theme="light" width="auto" mode="horizontal">
-                                <router-link v-for="Item in menuList" :to="Item.route">
-                                    <Badge :count="Item.count" :offset="[10, 10]">
-                                        <MenuItem :name="Item.name">
-                                            <Icon :type="Item.iconType"/>
-                                            <span>{{ Item.content }}</span>
+                                <router-link v-for="(item, itemIndex) in menuList" :to="item.route" v-bind:key="itemIndex">
+                                    <Badge :count="item.count" :offset="[10, 10]" >
+                                        <MenuItem :name="item.name">
+                                            <Icon :type="item.iconType"/>
+                                            <span>{{ item.content }}</span>
                                         </MenuItem>
                                     </Badge>
                                 </router-link>
@@ -127,7 +127,7 @@
                     </Row>
                 </Header>
                 <Content
-                    :style="{margin: '1px',padding:'3px', background: '#fff', height: 'auto', border:'1px soild #666'}"
+                    :style="{margin: '1px',padding:'3px', background: '#efefef', height: 'auto', border:'1px soild #666'}"
                 >
                     <Spin fix v-if="spinShow">
                         <div class="loader">
@@ -176,3 +176,8 @@ export default {
     }
 };
 </script>
+<style scoped>
+.content-body{
+    background-color: #efefef;
+}
+</style>

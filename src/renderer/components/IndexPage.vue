@@ -1,75 +1,35 @@
-<template>
-    <div>
-        <Time :time="time3" :interval="1"/>
-        <Button type="primary" @click="showState">showState</Button>
-        <Button type="primary" @click="handleStart">changeMenu</Button>
-    </div>
+<template style="height: 100%">
+  <div style="height: 100%">
+    <div class="bg"></div>
+    <div class="content">欢迎使用</div>
+  </div>
 </template>
 <script>
 export default {
-    data() {
-        return {
-            time3: new Date(),
-            rightMenu:[]
-        };
-    },
-     created(){
-      this.$store.dispatch('setRightMenu', {rightMenu: this.rightMenu});
-    },
-    methods: {
-        showState() {
-            var countSQL = "SELECT count(*) as flag FROM sqlite_master WHERE type='table' AND name='TAKES1';"
-            console.log(this.$config);
-
-            this.$db.get(countSQL, (err, res) => {
-                if (err) {
-                    this.$Notice.error({
-                        title: '搜索失败',
-                        desc: err,
-                    });
-                } else {
-                }
-            });
-            //console.log(this.$store.state.Counter.main);
-            // this.$Modal.info({
-            //     title: "test",
-            //     content: this.$store.state.Counter.main
-            // });
-        },
-        handleStart() {
-            this.$store.dispatch("setRightMenu", {
-                rightMenu: [
-                    {
-                        count: 0,
-                        content: "概况",
-                        name: "dashboard",
-                        route: "/task/dashboard",
-                        iconType: "ios-american-football-outline"
-                    },
-                    {
-                        count: 0,
-                        content: "进行中",
-                        name: "taksList",
-                        route: "/task/taksList",
-                        iconType: "ios-american-football-outline"
-                    },
-                    {
-                        count: 0,
-                        content: "待开始",
-                        name: "waiting",
-                        route: "/task/waiting",
-                        iconType: "md-aperture"
-                    },
-                    {
-                        count: 0,
-                        content: "已完成",
-                        name: "finish",
-                        route: "/task/finish",
-                        iconType: "md-list-box"
-                    }
-                ]
-            });
-        }
-    }
+  data() {
+    return {
+      rightMenu: []
+    };
+  },
+  created() {
+    this.$store.dispatch("setRightMenu", { rightMenu: this.rightMenu });
+  }
 };
 </script>
+<style scoped>
+.bg{
+  background-image: url("~@/assets/bg.jpg");
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(3px);
+}
+.content {
+  font-size: 60px;
+  width: 100%;
+  height: 600px;
+  align-content: center;
+}
+</style>
+

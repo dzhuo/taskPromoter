@@ -5,9 +5,9 @@ const taskRouter = {
   component: require('@/components/TaskPage/TaskIndex').default,
   children: [
     {
-      path: '/task/',
-      name: 'working-task',
-      component: require('@/components/TaskPage/TaskIndex').default
+      path: '/',
+      name: 'task-dashboard',
+      component: require('@/components/TaskPage/Dashboard').default
     },
     {
       path: '/task/dashboard',
