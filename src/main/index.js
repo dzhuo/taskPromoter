@@ -14,7 +14,8 @@ const winURL = process.env.NODE_ENV === 'development'
   : `file://${__dirname}/index.html`
 
 function createWindow () {
-  BrowserWindow.addDevToolsExtension('F:/vueWorkSpace/vue-devtools/shells/chrome') 
+  //vue扩展
+ // BrowserWindow.addDevToolsExtension('F:/vueWorkSpace/vue-devtools/shells/chrome') 
   /**
    * Initial window options
    */

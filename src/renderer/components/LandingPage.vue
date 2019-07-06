@@ -127,7 +127,7 @@
                     </Row>
                 </Header>
                 <Content
-                    :style="{margin: '1px',padding:'3px', background: '#efefef', height: 'auto', border:'1px soild #666'}"
+                    :style="{margin: '1px',padding:'3px', background: '#efefef', height: 'calc(100% - 66px)', border:'1px soild #666'}"
                 >
                     <Spin fix v-if="spinShow">
                         <div class="loader">

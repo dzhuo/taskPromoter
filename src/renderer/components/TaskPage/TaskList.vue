@@ -49,6 +49,7 @@
 </template>
 <script>
 import queryBox from "./components/queryBox";
+import DataHandler from "@/object/db/DataHandler.js";
 export default {
     components: { queryBox },
     data() {
@@ -78,30 +79,30 @@ export default {
                 }
             ],
             data: [
-                {
-                    name: "王小明",
-                    age: 18,
-                    birthday: "919526400000",
-                    address: "北京市朝阳区芍药居"
-                },
-                {
-                    name: "张小刚",
-                    age: 25,
-                    birthday: "696096000000",
-                    address: "北京市海淀区西二旗"
-                },
-                {
-                    name: "李小红",
-                    age: 30,
-                    birthday: "563472000000",
-                    address: "上海市浦东新区世纪大道"
-                },
-                {
-                    name: "周小伟",
-                    age: 26,
-                    birthday: "687024000000",
-                    address: "深圳市南山区深南大道"
-                }
+                // {
+                //     name: "王小明",
+                //     age: 18,
+                //     birthday: "919526400000",
+                //     address: "北京市朝阳区芍药居"
+                // },
+                // {
+                //     name: "张小刚",
+                //     age: 25,
+                //     birthday: "696096000000",
+                //     address: "北京市海淀区西二旗"
+                // },
+                // {
+                //     name: "李小红",
+                //     age: 30,
+                //     birthday: "563472000000",
+                //     address: "上海市浦东新区世纪大道"
+                // },
+                // {
+                //     name: "周小伟",
+                //     age: 26,
+                //     birthday: "687024000000",
+                //     address: "深圳市南山区深南大道"
+                // }
             ],
             editIndex: -1, // 当前聚焦的输入框的行数
             editName: "", // 第一列输入框，当然聚焦的输入框的输入内容，与 data 分离避免重构的闪烁
@@ -150,6 +151,7 @@ export default {
             this.queryByModule = true;
         },
         queryTaskList(){
+           // console.log((new DataHandler([1,2,3,54])).getDb());
              var countSQL = "SELECT * FROM TAKES;"
                 this.$db.get(countSQL, (err, res) => {
                 if (err) {
@@ -158,7 +160,8 @@ export default {
                         desc: err,
                     });
                 } else {
-                    debugger;
+                     console.log("res")
+                   console.log(res)
                 }
             });
         }
