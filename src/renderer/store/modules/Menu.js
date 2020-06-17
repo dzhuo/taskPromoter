@@ -1,16 +1,22 @@
 const state = {
-    rightMenu: []
+  menu: {
+      defaultActive:"",
+      menuList:[]
+    }
 }
 
 const mutations = {
-    SET_RIGHT_MENU(state, rightMenu){
-        state.rightMenu = rightMenu;
+    SET_MENU(state, menu){
+        if(menu.defaultActive == undefined){
+          menu.defaultActive = "";
+        }
+        state.menu = menu;
     }
   }
   const actions = {
-    setRightMenu ({ commit },{rightMenu}) {
+    setMenu ({ commit },{menu}) {
       // do something async
-      commit('SET_RIGHT_MENU', rightMenu) 
+      commit('SET_MENU', menu) 
     }
   }
 export default{

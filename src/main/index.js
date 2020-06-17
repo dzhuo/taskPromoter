@@ -1,5 +1,6 @@
 import { app, BrowserWindow } from 'electron'
 import store from '../renderer/store'
+
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
@@ -48,6 +49,7 @@ app.on('activate', () => {
   }
 })
 
+
 /**
  * Auto Updater
  *
@@ -67,3 +69,14 @@ app.on('ready', () => {
   if (process.env.NODE_ENV === 'production') autoUpdater.checkForUpdates()
 })
  */
+
+ //加载当前文件下的代码
+const files = require.context('.', false, /\.js$/)
+const modules = {}
+
+files.keys().forEach(key => {
+  if (key === './index.js') return;
+  modules[key.replace(/(\.\/|\.js)/g, '')] = files(key).default
+})
+
+export default modules

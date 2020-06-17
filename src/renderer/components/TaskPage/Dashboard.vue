@@ -235,10 +235,10 @@ export default {
   data() {
     return {
       time: new Date(),
-      rightMenu: [],
       workTime:""
     };
   },
+  
   mounted(){
     this.countWorkTime();
   },
@@ -264,38 +264,7 @@ export default {
       step(this);
     },
     handleStart() {
-      this.$store.dispatch("setRightMenu", {
-        rightMenu: [
-          {
-            count: 0,
-            content: "概况",
-            name: "dashboard",
-            route: "/task/dashboard",
-            iconType: "ios-american-football-outline"
-          },
-          {
-            count: 0,
-            content: "进行中",
-            name: "taksList",
-            route: "/task/taksList",
-            iconType: "ios-american-football-outline"
-          },
-          {
-            count: 0,
-            content: "待开始",
-            name: "waiting",
-            route: "/task/waiting",
-            iconType: "md-aperture"
-          },
-          {
-            count: 0,
-            content: "已完成",
-            name: "finish",
-            route: "/task/finish",
-            iconType: "md-list-box"
-          }
-        ]
-      });
+      consolel.log("handleStart")
     }
   }
 };

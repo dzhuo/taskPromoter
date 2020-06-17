@@ -60,7 +60,7 @@ db.serialize(() => {
    * 工程模块表 
    * id 主键
    * name 模块名称
-   * pId 父模块ID
+   * p_id 父模块ID
    * create_date 创建时间
    * update_date 最近更新时间
    * state 数据状态
@@ -72,7 +72,7 @@ db.serialize(() => {
           CREATE TABLE PROJECT_MODULES(
             id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
             name VARCHAR(255) NOT NULL,
-            pId INTEGER ,
+            p_id INTEGER ,
             create_date DATE NOT NULL,
             update_date DATE ,
             state INTEGER

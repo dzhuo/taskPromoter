@@ -11,11 +11,11 @@
 export default {
   data() {
     return {
-      rightMenu: []
+      menu: []
     };
   },
   created() {
-    this.$store.dispatch("setRightMenu", { rightMenu: this.rightMenu });
+    this.$store.dispatch("setMenu", { menu: this.menu });
   }
 };
 </script>

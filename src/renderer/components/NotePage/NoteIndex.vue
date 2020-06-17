@@ -1,20 +1,36 @@
 <template>
     <div>
-        <Button @click="handleStart">open note</Button>
-      
+    <Row>
+      <Card>
+               <Input v-model="noteContent" type="textarea" :rows="27" placeholder="记事本" />
+      </Card>
+    </Row>
     </div>
 </template>
 <script>
+const ipcRenderer = require('electron').ipcRenderer;
+
+ipcRenderer.on('asynchronous-reply', function(event, arg) {
+  console.log(arg); 
+});
+
 export default {
     data() {
         return {
-            rightMenu: [
+            noteContent:"",
+            menu: [
               
             ]
         };
     },
     created(){
-      this.$store.dispatch('setRightMenu', {rightMenu: this.rightMenu});
+      this.$store.dispatch('setMenu', {menu: this.menu});
+    },
+    watch:{
+        noteContent:function(a,b){
+            console.log("渲染发送异步消息返回"+ipcRenderer.send('asynchronous-message', 'ping'));
+            console.log("渲染发送同步消息返回"+ipcRenderer.sendSync('synchronous-message', a));
+        }
     },
     methods: {
         handleStart() {
