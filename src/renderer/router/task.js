@@ -21,8 +21,13 @@ const taskRouter = {
     },
     {
       path: '/task/projectList',
-      name: 'task-List',
+      name: 'project-List',
       component: require('@/components/TaskPage/ProjectList').default
+    },
+    {
+      path: '/task/testList',
+      name: 'test-List',
+      component: require('@/components/TaskPage/TestPage/TestIndex').default
     }
   ]
 }

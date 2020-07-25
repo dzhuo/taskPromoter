@@ -113,20 +113,20 @@
               <div class="menuLine"></div>
             </Col>
             <Col span="22">
-              <Menu
+              <Menu style="-webkit-app-region: drag;"
                 ref="topMenu"
                 theme="light"
                 width="auto"
                 mode="horizontal"
                 :active-name=" menu.defaultActive"
               >
-                <router-link
+                <router-link 
                   v-for="(item, itemIndex) in menu.menuList"
                   :to="item.route"
                   v-bind:key="itemIndex"
                 >
                   <Badge :count="item.count" :offset="[10, 10]">
-                    <MenuItem :name="item.name">
+                    <MenuItem :name="item.name" style="-webkit-app-region: no-drag;">
                       <Icon :type="item.iconType" />
                       <span>{{ item.content }}</span>
                     </MenuItem>

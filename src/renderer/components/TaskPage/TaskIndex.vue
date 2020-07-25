@@ -30,6 +30,13 @@ export default {
             name: "project-List",
             route: "/task/projectList",
             iconType: "ios-american-football-outline"
+          },
+          {
+            count: 0,
+            content: "便捷测试",
+            name: "test-List",
+            route: "/task/testList",
+            iconType: "ios-american-football-outline"
           }
         ]
       }

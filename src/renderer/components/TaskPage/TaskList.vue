@@ -160,7 +160,6 @@ export default {
                         desc: err,
                     });
                 } else {
-                     console.log("res")
                    console.log(res)
                 }
             });
