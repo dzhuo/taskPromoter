@@ -73,6 +73,10 @@ let initProxy = function(){
         get onreadystatechange(){
             return this[T_RSC_HANDLERS][0] || null;
         }
+        send(body){
+            console.log(body);
+            super.send(...arguments);
+        }
  
     }
     //覆盖原生的XMLHttpRequest

@@ -1,5 +1,4 @@
 const { ipcRenderer } = require('electron');
-const { Session } = require('electron')
 ipcRenderer.on('getRequert', (event, arg) => {
     console.log(event, arg);
     ipcRenderer.sendToHost(window.URL)
