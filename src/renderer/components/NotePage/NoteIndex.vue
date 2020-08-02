@@ -1,6 +1,23 @@
 <template>
     <div>
     <Row>
+          <Card>
+              <Row>
+                  <Col span="4">
+            <Button type="success" :loading="addFlag" shape="circle"  @click="addNote">
+                <span v-if="!addFlag"  ><Icon type="md-add" /></span>
+                <span v-else ></span>
+            </Button>
+                        <Button type="error" :loading="deleteFlag" shape="circle"  @click="deleteNote">
+                <span v-if="!deleteFlag" ><Icon type="md-trash" /></span>
+                <span v-else ></span>
+            </Button>
+                  </Col >
+                  <Col span="8"></Col >
+              </Row>
+
+         </Card>
+    </Button>
       <Card>
                <Input v-model="noteContent" type="textarea" :rows="27" placeholder="记事本" />
       </Card>
@@ -20,7 +37,9 @@ export default {
             noteContent:"",
             menu: [
               
-            ]
+            ],
+            deleteFlag:false,
+            addFlag:false
         };
     },
     created(){
@@ -33,11 +52,27 @@ export default {
         }
     },
     methods: {
-        handleStart() {
-            // this.$Modal.info({
-            //     title: "Bravo",
-            //     content: "Now, enjoy the convenience of iView."
-            // });
+        deleteNote () {
+            this.deleteFlag = true;
+            this.$Modal.info({
+                title: "提示",
+                content: "你点击了删除按钮",
+                onOk:()=>{
+                      this.deleteFlag = false;
+                }
+            });
+            
+        },
+        addNote () {
+            this.addFlag = true;
+            this.$Modal.info({
+                title: "提示",
+                content: "你点击了添加按钮",
+                onOk:()=>{
+                    this.addFlag = false;
+                }
+            });
+            
         }
     }
 };
