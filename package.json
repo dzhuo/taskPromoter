@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "autoprefixer-loader": "^2.1.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "extract-text-webpack-plugin": "^2.1.2",
     "iview": "^3.3.3",
     "less-loader": "^4.1.0",
